@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculateur de Réduction</title>
+</head>
+<body>
+    <script>
+
+        let montant = Number(prompt("Entrez le montant de vos achats en Dh:"));
+
+       
+        let reduction = 0;
+        if (montant < 200) {
+            reduction = montant * 0.05;
+        } else if (montant >= 200 && montant < 500) {
+            reduction = montant * 0.10;
+        } else if (montant >= 500) {
+            reduction = montant * 0.20;
+        }
+
+        let total = montant - reduction;
+        console.log(`Pour un montant de ${montant}Dh, votre réduction est de ${reduction}Dh et le total est ${total}Dh.`);
+
+ 
+        let tranche;
+        if (montant < 100) tranche = 'small';
+        else if (montant >= 100 && montant <= 500) tranche = 'medium';
+        else tranche = 'large';
+
+        switch(tranche) {
+            case 'small':
+                reduction = montant * 0.05;
+                break;
+            case 'medium':
+                reduction = montant * 0.10;
+                break;
+            case 'large':
+                reduction = montant * 0.20;
+                break;
+        }
+
+        total = montant - reduction;
+        console.log(`(Switch) Pour un montant de ${montant}Dh, votre réduction est de ${reduction}Dh et le total est ${total}Dh.`);
+    </script>
+</body>
+</html>
