@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercice7</title>
+</head>
+<body>
+    <button onclick="saisieSecurisee()">Entrer un nombre</button>
+    <script>
+    
+    function saisieSecurisee() {
+    try {
+    let saisie = prompt("Entrez un nombre entre 1 et 100");
+    let nombre = Number(saisie);
+
+    if (isNaN(nombre)) {
+      throw "Ce n'est pas un nombre valide";
+    }
+
+    if (nombre < 1 || nombre > 100) {
+      throw "Le nombre doit être entre 1 et 100";
+    }
+
+    alert("Nombre valide : " + nombre);
+
+  } catch (erreur) {
+    alert("Erreur : " + erreur);
+  }
+}
+</script>
+</body>
+</html>

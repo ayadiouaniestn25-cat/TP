@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercice6</title>
+</head>
+<body>
+ <h1>Catalogue de Produits</h1>
+    
+
+    <script> 
+const produits = [
+  { nom: "Robe", prix: 250, quantite: 15 },
+  { nom: "Sac", prix: 180, quantite: 20 },
+  { nom: "Chaussures", prix: 300, quantite: 10 },
+  { nom: "Parfum", prix: 400, quantite: 8 }
+];
+
+function afficherProduits() {
+  for (const produit of produits) {
+    console.log(
+      "Produit : " + produit.nom +
+      " ; Prix : " + produit.prix + " DH" +
+      " ; Quantité restante : " + produit.quantite
+    );
+  }
+}
+
+function vendreProduit(nomProduit, quantiteAVendre) {
+  for (const produit of produits) {
+    if (produit.nom === nomProduit) {
+      if (produit.quantite >= quantiteAVendre) {
+        produit.quantite = produit.quantite - quantiteAVendre;
+        console.log("Vente effectuée avec succès");
+      } else {
+        console.log("Erreur : quantité insuffisante");
+    }
+     return;
+   } 
+  }
+  console.log("Erreur : produit non trouvé");
+}
+
+afficherProduits();
+vendreProduit("Robe", 20);
+vendreProduit("Parfum", 2);
+afficherProduits();
+    </script>
+</body>
+</html>

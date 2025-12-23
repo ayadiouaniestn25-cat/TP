@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercice8</title>
+</head>
+<body>
+    <script>
+    function saisieUtilisateur() {
+  let nom = prompt("Entrez votre nom:");
+  let age = prompt("Entrez votre âge:");
+  let hobbies = prompt("Entrez vos hobbies (séparés par une virgule):");
+  let hobbiesArray = hobbies.split(",").map(h => h.trim());
+  let utilisateur = {
+    nom: nom,
+    age: Number(age),
+    hobbies: hobbiesArray
+  };
+  let utilisateurJSON = JSON.stringify(utilisateur);
+
+  console.log("JSON envoyé au serveur:");
+  console.log(utilisateurJSON);
+  let jsonRecue = utilisateurJSON; 
+  let utilisateurRecue = JSON.parse(jsonRecue);
+
+  console.log("Données reçues du serveur:");
+  console.log("Nom: " + utilisateurRecue.nom);
+  console.log("Âge: " + utilisateurRecue.age);
+  console.log("Hobbies: " + utilisateurRecue.hobbies.join(", "));
+}
+saisieUtilisateur();
+
+    </script>
+</body>
+</html>
